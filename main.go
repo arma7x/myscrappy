@@ -29,7 +29,7 @@ var STATE = map[string]string{
   "WLP": "Wilayah Persekutuan Labuan",
 }
 
-var RIVER_HEADER = []string{"No","StationID","StationName","District","MainBasin","SubRiverBasin","LastUpdated","WaterLevel","Threshold"}
+var RIVER_HEADER = []string{"No","Station ID","Station Name","District","Main Basin","Sub River Basin","Last Updated","Water Level","Threshold"}
 var RIVER_LEVEL = []string{"Normal","Alert","Warning","Danger"}
 
 func main() {
