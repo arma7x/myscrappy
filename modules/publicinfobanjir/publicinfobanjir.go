@@ -31,24 +31,23 @@ var STATE = map[string]string{
 var RIVER_HEADER = []string{"No","Station ID","Station Name","District","Main Basin","Sub River Basin","Last Updated","Water Level","Threshold"}
 var RIVER_LEVEL = []string{"Normal","Alert","Warning","Danger"}
 
-
+// https://github.com/PuerkitoBio/goquery/issues/17
 func RemoveNode(root_node *html.Node, remove_me *html.Node) {
   found_node := false
   check_nodes := make(map[int]*html.Node)
   i := 0
   for n := root_node.FirstChild; n != nil; n = n.NextSibling {
-      if n == remove_me {
-          found_node = true
-          n.Parent.RemoveChild(n)
-      }
-
-      check_nodes[i] = n
-      i++
+    if n == remove_me {
+        found_node = true
+        n.Parent.RemoveChild(n)
+    }
+    check_nodes[i] = n
+    i++
   }
   if found_node == false {
-      for _, item := range check_nodes {
-          RemoveNode(item, remove_me)
-      }
+    for _, item := range check_nodes {
+      RemoveNode(item, remove_me)
+    }
   }
 }
 
