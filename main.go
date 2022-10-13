@@ -135,7 +135,6 @@ func GetCurrencies(c *gin.Context) {
             "error": err.Error(),
             "url": url,
           })
-          return
         } else {
           var headers []string
           var result [][][]string

@@ -88,7 +88,6 @@ func GetRiverLevel(c *gin.Context) {
       "error": err.Error(),
       "url": url,
     })
-    return
   } else {
     if (html == "1") {
       doc.Find("script").Each(func(i int, s *goquery.Selection) {
@@ -161,7 +160,6 @@ func GetRainLevel(c *gin.Context) {
       "error": err.Error(),
       "url": url,
     })
-    return
   } else {
     if (html == "1") {
       calculatejs := "<script>function calculate(){var e=new URL(document.location.toString());e.searchParams.set('html',0),fetch(e.toString()).then(e=>e.json()).then(e=>{console.clear();let t={};e.data.forEach(e=>{var a=0;if(null!=e['Daily Rainfall']&&Object.keys(e['Daily Rainfall']).length>0){for(let l in e['Daily Rainfall']){let n=parseFloat(e['Daily Rainfall'][l]);n>=0&&(a+=n)}null==t[e.District]&&(t[e.District]=0),t[e.District]+=a}});var a=[];for(var l in t)a.push({name:l,value:t[l]});a.sort((e,t)=>e.value>t.value?-1:1);let n=new Date,i=n.getDate(),r=n.getMonth()+1;n.setTime(n.getTime()-5184e5);let o=n.getDate(),c=n.getMonth()+1;var h=document.createElement('ul');h.setAttribute('id','total_rainfall');var m=`Total rainfall for 7 consecutive days(${i}/${r} - ${o}/${c}):`,s=document.createElement('h3');s.setAttribute('style','margin-left:4px;'),document.body.appendChild(s),s.innerHTML=m,a.forEach(e=>{m+=`${e.name}${'-'.repeat(30-e.name.length)}-> ${e.value.toFixed(2)}mm`;var t=document.createElement('li');h.appendChild(t),t.innerHTML=`${e.name} ${e.value.toFixed(2)}mm`}),document.body.appendChild(h),console.log(m)}).catch(e=>{console.error(e)})}calculate();</script>"
