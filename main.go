@@ -15,12 +15,14 @@ func main() {
       "go_version": runtime.Version(),
     })
   })
+
   routePublicInfoBanjir := r.Group("/publicinfobanjir/api/v1")
   {
     routePublicInfoBanjir.GET("/state", publicinfobanjir.GetStateList)
     routePublicInfoBanjir.GET("/river", publicinfobanjir.GetRiverLevel)
     routePublicInfoBanjir.GET("/rain", publicinfobanjir.GetRainLevel)
   }
+
   routeFinancialTimes := r.Group("/ft/api/v1")
   {
     routeFinancialTimes.GET("/currencies", financialtimes.GetCurrencies)
