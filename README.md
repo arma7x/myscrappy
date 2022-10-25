@@ -19,5 +19,10 @@ set html=1 for html output
 - /ft/api/v1/equities?rankingType=highestvolume&rankingSet=SP500
 ```
 [group](https://github.com/arma7x/myscrappy/blob/master/modules/financialtimes/financialtimes.go#L3-L9)
-[rangkingSet](https://github.com/arma7x/myscrappy/blob/master/modules/financialtimes/financialtimes.go#L11-L40)
-[rankingType](https://github.com/arma7x/myscrappy/blob/master/modules/financialtimes/financialtimes.go#L42-L46)
+, [rangkingSet](https://github.com/arma7x/myscrappy/blob/master/modules/financialtimes/financialtimes.go#L11-L40)
+, [rankingType](https://github.com/arma7x/myscrappy/blob/master/modules/financialtimes/financialtimes.go#L42-L46)
+
+##### open-meteo
+```
+- /open-meteo/api/v1/weather?latitude=37.6&longitude=-95.665
+```

@@ -6,6 +6,7 @@ import (
   "github.com/gin-gonic/gin"
   "myscrappy/modules/publicinfobanjir"
   "myscrappy/modules/financialtimes"
+  "myscrappy/modules/openmeteo"
 )
 
 func main() {
@@ -30,6 +31,11 @@ func main() {
     routeFinancialTimes.GET("/bondsandrates", financialtimes.GetBondsAndRates)
     routeFinancialTimes.GET("/governmentbondsspreads", financialtimes.GetGovernmentBondsSpreads)
     routeFinancialTimes.GET("/equities", financialtimes.GetEquities)
+  }
+
+  routeWeather := r.Group("/open-meteo/api/v1")
+  {
+    routeWeather.GET("/weather", openmeteo.GetWeather)
   }
 
   r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
