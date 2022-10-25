@@ -3,6 +3,7 @@ package main
 import (
   "net/http"
   "runtime"
+  "github.com/gin-contrib/cors"
   "github.com/gin-gonic/gin"
   "myscrappy/modules/publicinfobanjir"
   "myscrappy/modules/financialtimes"
@@ -11,6 +12,8 @@ import (
 
 func main() {
   r := gin.Default()
+  r.Use(cors.Default())
+
   r.GET("/", func(c *gin.Context) {
     c.JSON(http.StatusOK, gin.H{
       "go_version": runtime.Version(),
